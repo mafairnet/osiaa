@@ -30,14 +30,12 @@ chown -R asterisk.asterisk /var/{lib,log,spool}/asterisk
 chown -R asterisk.asterisk /usr/lib/asterisk
 
 #edit asterisk files to users
-sudo vim /etc/default/asterisk
-AST_USER="asterisk"
-AST_GROUP="asterisk"
+echo 'AST_USER="asterisk"' > /etc/default/asterisk
+echo 'AST_GROUP="asterisk"' >> /etc/default/asterisk
 
 #edit asterisk files to users
-vim /etc/asterisk/asterisk.conf
-runuser = asterisk ; The user to run as.
-rungroup = asterisk ; The group to run as.
+echo 'runuser = asterisk ; The user to run as.' >> /etc/asterisk/asterisk.conf
+echo 'rungroup = asterisk ; The group to run as.' >> /etc/asterisk/asterisk.conf
 
 systemctl enable asterisk
 systemctl start asterisk
